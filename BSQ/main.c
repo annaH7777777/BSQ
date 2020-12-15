@@ -1,21 +1,30 @@
 
 #include <stdio.h>
 #include "ft.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 int main(int argc, char **argv)
 {
+    
     int i = 1;
     if(argc > 1)
     {
-        while(i < argc)
+        while(i <= argc)
         {
+            
             t_list *map;
-            if(map = verify_map(read_file(argv[i])))
+            printf("main");
+            //map = malloc(sizeof(t_list));
+            //read_file(argv[i]);
+            if(!(map = verify_map(read_file(argv[i]))))
             {
-                found_solution(map);
+                printf("main2");
+                find_solution(verify_map(read_file(argv[i])));
                 ft_putchar('\n');
             }
-            ft_putstr("map error\n");
+            else
+                ft_putstr("map error\n");
             i++;
         }
     }
